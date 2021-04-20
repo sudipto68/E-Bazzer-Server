@@ -27,11 +27,9 @@ client.connect((err) => {
   });
 
   app.get("/orders", (req, res) => {
-    orderCollection
-      .find({ email: req.query.email })
-      .toArray((err, documents) => {
-        res.send(documents);
-      });
+    orderCollection.find({ email: req.query.email }).toArray((err, items) => {
+      res.send(items);
+    });
   });
 
   app.post("/addorders", (req, res) => {
