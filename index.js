@@ -34,6 +34,13 @@ client.connect((err) => {
       });
   });
 
+  app.post("/addorders", (req, res) => {
+    const newProduct = req.body;
+    orderCollection.insertOne(newProduct).then((res) => {
+      console.log(res);
+    });
+  });
+
   app.post("/addproducts", (req, res) => {
     const newProduct = req.body;
     productCollection.insertOne(newProduct).then((res) => {
