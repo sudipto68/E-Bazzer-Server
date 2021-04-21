@@ -27,7 +27,7 @@ client.connect((err) => {
   });
 
   app.get("/orders/:email", (req, res) => {
-    const email = req.params.emial;
+    const email = req.params.email;
     orderCollection.find({ email: email }).toArray((err, documents) => {
       res.send(documents);
     });
