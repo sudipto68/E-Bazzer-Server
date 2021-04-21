@@ -26,9 +26,10 @@ client.connect((err) => {
     });
   });
 
-  app.get("/orders", (req, res) => {
-    orderCollection.find({ email: req.query.email }).toArray((err, items) => {
-      res.send(items);
+  app.get("/orders/:email", (req, res) => {
+    const email = req.params.emial;
+    orderCollection.find({ email: email }).toArray((err, documents) => {
+      res.send(documents);
     });
   });
 
